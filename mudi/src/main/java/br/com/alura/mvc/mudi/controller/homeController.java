@@ -1,24 +1,21 @@
 package br.com.alura.mvc.mudi.controller;
 
-import java.util.Arrays;
+
 import java.util.List;
 
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import br.com.alura.mvc.mudi.model.Pedido;
+import br.com.alura.mvc.mudi.repositoy.PedidoRepository;
 
 @Controller
 public class homeController {
 	
-	@PersistenceContext
-	private EntityManager entityManager;
+	@Autowired
+	private PedidoRepository pedidosRepository;
 	
 	@GetMapping("/home")
 	public String home(Model model) {
@@ -30,11 +27,7 @@ public class homeController {
 //		
 //		List<Pedido> listaPeidos = Arrays.asList(prime);
 		
-		Query query = entityManager.createQuery("Select p from Pedido p");
-		List<Pedido> pedidos = query.getResultList();
-		
-		
-		
+		List<Pedido> pedidos = pedidosRepository.recuperaTodosPedidos();
 		model.addAttribute("pedidos", pedidos);
 		return "home";
 	}
