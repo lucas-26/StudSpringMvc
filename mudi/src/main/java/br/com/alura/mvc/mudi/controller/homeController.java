@@ -27,7 +27,7 @@ public class homeController {
 //		
 //		List<Pedido> listaPeidos = Arrays.asList(prime);
 		
-		List<Pedido> pedidos = pedidosRepository.recuperaTodosPedidos();
+		List<Pedido> pedidos = pedidosRepository.findAll();
 		model.addAttribute("pedidos", pedidos);
 		return "home";
 	}
