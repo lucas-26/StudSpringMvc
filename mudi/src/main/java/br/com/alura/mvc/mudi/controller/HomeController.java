@@ -12,7 +12,7 @@ import br.com.alura.mvc.mudi.model.Pedido;
 import br.com.alura.mvc.mudi.repositoy.PedidoRepository;
 
 @Controller
-public class homeController {
+public class HomeController {
 	
 	@Autowired
 	private PedidoRepository pedidosRepository;
