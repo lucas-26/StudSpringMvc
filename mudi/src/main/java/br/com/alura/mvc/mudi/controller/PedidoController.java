@@ -33,7 +33,7 @@ public class PedidoController {
 		Pedido pedido = rnp.toPedido();
 		pedidoReposity.save(pedido);
 		
-		return "pedido/formulario";
+		return "redirect:/home";
 	}
 
 }
