@@ -17,6 +17,15 @@ public class Pedido {
 	private String urlImagem;
 	private String urlDescricao;
 	
+	@Enumerated(EnumType.STRING)  
+	private StatusPedido statusdopedido; 
+	
+	public StatusPedido getStatusdopedido() {
+		return statusdopedido;
+	}
+	public void setStatusdopedido(StatusPedido statusdopedido) {
+		this.statusdopedido = statusdopedido;
+	}
 	public String getNomeProduto() {
 		return nomeProduto;
 	}
